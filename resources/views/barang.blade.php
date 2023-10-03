@@ -42,7 +42,8 @@
 <div class="container">
    <b><h1>CRUD Ajax DataTable</b></h1>
      <a class="btn btn-success" href="javascript:void(0)" id="createNewBarang">+Create Data Barang</a>
-      <table id="myTable" class="table table-bordered data-table">
+     <a  class="btn btn-info" href="{{url('/kategori_kelas')}}">Kategori Kelas</a>
+  <table id="myTable" class="table table-bordered data-table">
       <thead>
          <tr>
            <th>Name Barang</th>
@@ -59,32 +60,31 @@
     <div class="modal-content">
       <div class="modal-header">
       <h4 class="modal-title" id="modelHeading"></h4>
-   </div>
-     <div class="modal-body">
+    </div>
+  <div class="modal-body">
        <form id="barangForm" name="barangForm" class="form-horizontal">
-     <input type="hidden" name="barang_id" id="id_barang">
+    <input type="hidden" name="barang_id" id="id_barang">
 
   <div class="form-group">
-       <label for="name" class="col-sm-2 control-label">Name barang</label>
+        <label for="name" class="col-sm-2 control-label">Name barang</label>
           <div class="col-sm-12">
        <input type="text" class="form-control" id="name_barang" name="name_barang" placeholder="Name Barang" value="" maxlength="50" required="">
     </div>
     </div>
      
   <div class="form-group">
-       <label class="col-sm-2 control-label">Jumlah barang</label>
+        <label class="col-sm-2 control-label">Jumlah barang</label>
           <div class="col-sm-12">
        <input type="text" class="form-control" id="jumlah_barang" name="jumlah_barang" placeholder="jumlah_barang"  required=""></textarea>
     </div>
     </div>
       
-      <div class="col-sm-offset-2 col-sm-10">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnClose">Close</button>
-         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Submit</button>
-
-     </div>
-      </form>
-     </div>
+  <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnClose">Close</button>
+        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Submit</button>
+    </div>
+     </form>
+    </div>
   </div> 
 </body>
 
@@ -104,7 +104,7 @@ $.ajaxSetup({
               {data: 'jumlah_barang', name: 'jumlah_barang'},
               {data: 'action', name: 'action', orderable: false, searchable: false},
           ],
-       })
+      })
        
       $('#createNewBarang').click(function () {
           $('#saveBtn').val("create-barang");
@@ -139,7 +139,7 @@ $.ajaxSetup({
             console.log('Error:', data);
        $('#saveBtn').html('Save Changes');
         }
-     });
+      });
     });
       
       $('#saveBtn').click(function (e) {
@@ -155,20 +155,20 @@ $.ajaxSetup({
             'Good job!',
             'Data Berhasil',
             'success'
-    );
+       );
 
       $('#barangForm').trigger("reset");
       $('#Ajaxmodal').modal('hide');
          table.draw();
            
-    },
+       },
 
       error: function (data) {
         console.log('Error:', data);
      $('#saveBtn').html('Save Changes');
        }
      });
-   });
+  });
       
       $('body').on('click', '#hapusBarang', function (id) {
         var barang_id = $(this).data("id");
@@ -194,18 +194,18 @@ $.ajaxSetup({
             'SELAMAT',
             'DATA ANDA BERHASIL DIHAPUS',
             'success'
-     );
+        );
                 
       $('#myTable').DataTable().ajax.reload();
-    },
+     },
         error: function (data) {
           console.log('Error:', data);
-        }
-          })
-        }
+      }
+        })
+      }
            
-      })
-    });
-  </script>
-  </html>
+     })
+  });
+</script>
+</html>
   
